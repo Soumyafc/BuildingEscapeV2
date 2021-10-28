@@ -23,10 +23,14 @@ private:
 	float InitialYaw;
 
 	UPROPERTY(EditAnywhere)
-	ATriggerVolume *PressurePlate;
+	ATriggerVolume* PressurePlate = nullptr;
+	
+	UPROPERTY()
+	class UAudioComponent *AudioComponent = nullptr;
 
-	UPROPERTY(EditAnywhere)
-	AActor *ActorThatOpens;
+    UPROPERTY(EditAnywhere)
+	float MassToOpenDoors = 32.f;
+
 
 protected:
 	// Called when the game starts
@@ -38,4 +42,10 @@ public:
 
 	void OpenDoor(float DeltaTime);
 	void CloseDoor(float DeltaTime);
+	float TotalMassOfActors() const;
+	void FindAudioComponent();
+	void FindpressurePlate();
+
+	bool OpenDoorSound = false;
+	bool CloseDoorSound = true;
 };
