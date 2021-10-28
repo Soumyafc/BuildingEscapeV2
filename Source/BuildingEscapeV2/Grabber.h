@@ -34,6 +34,10 @@ private:
 
 	FHitResult GetFirstPhysicsBodyInReach() const;
 
+	FVector GetPlayersReach() const;
+
+	FVector GetPlayersWorldPos() const;
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
